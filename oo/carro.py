@@ -75,7 +75,7 @@ os seguintes atributos:
     >>> carro.calcular_velocidade()
     0
     >>> carro.acelerar()
-    >>> carro.calcular_velociddade()
+    >>> carro.calcular_velocidade()
     1
     >>> carro.acelerar()
     >>> carro.calcular_velocidade()
@@ -83,26 +83,39 @@ os seguintes atributos:
     >>> carro.frear()
     >>> carro.calcular_velocidade()
     0
-    >>> carro.calcular_direcao()
-    'Norte'
-    >>> carro.calcular_direcao()
-    >>> carro.girar_a_direita()
-    'Leste'
-    >>> carro.calcular_a_direcao()
-    >>> carro.girar_a_esquerda()
-    'Norte'
-    >>> carro.calcular_a_direcao()
-    >>> carro.girar_a_esquerda()
-    'Oeste'
+
 """
+
+class Carro:
+    def __init__(self, direcao, motor):
+        self.motor = motor
+        self.direcao = direcao
+
+    def calcular_velocidade(self):
+        return self.motor.velocidade
+
+    def acelerar(self):
+        self.motor.acelerar()
+
+    def frear(self):
+        self.motor.frear()
+
+    def calcular_direcao(self):
+        return self.direcao.valor
+
+    def girar_a_direita(self):
+        self.direcao.girar_a_direita()
+
+    def girar_a_esquerda(self):
+        self.direcao.girar_a_esquerda()
 
 NORTE = 'Norte'
 SUL = 'Sul'
 LESTE = 'Leste'
 OESTE = 'Oeste'
 
-class Direcao:
 
+class Direcao:
     rotacao_a_diteita_dtc = {NORTE: LESTE, LESTE: SUL, SUL: OESTE, OESTE: NORTE}
     rotacao_a_esquerda_dtc = {NORTE: OESTE, OESTE: SUL, SUL: LESTE, LESTE: NORTE}
 
